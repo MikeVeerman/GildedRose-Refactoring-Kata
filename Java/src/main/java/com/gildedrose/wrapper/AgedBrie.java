@@ -7,7 +7,9 @@ public class AgedBrie extends WrappedItem{
         super(legacyItem);
     }
 
-    @Override
+    /**
+     * Aged Brie only gets better. The quality increases until it reaches 50.
+     */
     public void updateQuality() {
         if (getQuality() < 50) {
             getLegacyItem().quality ++;
