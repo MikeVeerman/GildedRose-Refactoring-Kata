@@ -19,6 +19,10 @@ public class ItemFactory{
                     wrappedItem = new Sulfuras(legacyItems[i]);
                     break;
                 }
+                case "Backstage passes to a TAFKAL80ETC concert": {
+                    wrappedItem = new BackstagePass(legacyItems[i]);
+                    break;
+                }
                 default: {
                     wrappedItem = new RegularItem(legacyItems[i]);
                     break;

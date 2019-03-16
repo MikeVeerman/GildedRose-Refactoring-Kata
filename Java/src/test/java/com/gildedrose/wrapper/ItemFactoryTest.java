@@ -48,4 +48,18 @@ public class ItemFactoryTest{
         assertEquals("The sellIn should match", sulfuras.sellIn, items[0].getSellIn());
         assertTrue("It should be a Sulfuras", items[0] instanceof Sulfuras);
     }
+
+    @Test 
+    public void testCreateBackstagePass(){
+        Item backstagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20);
+        Item[] legacyItems = new Item[]{backstagePass};
+        WrappedItem[] items = ItemFactory.create(legacyItems);
+
+        assertNotNull(items);
+        assertEquals("There should be one item", 1, items.length);
+        assertEquals("The name should match", backstagePass.name, items[0].getName());
+        assertEquals("The quality should match", backstagePass.quality, items[0].getQuality());
+        assertEquals("The sellIn should match", backstagePass.sellIn, items[0].getSellIn());
+        assertTrue("It should be a BackstagePass", items[0] instanceof BackstagePass);
+    }
 }
