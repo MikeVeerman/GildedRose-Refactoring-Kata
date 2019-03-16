@@ -21,5 +21,9 @@ public abstract class WrappedItem {
     public int getQuality(){
         return this.legacyItem.quality;
     };
+
+    /**
+     * Implement the quality updating logic here.
+     */
     public abstract void updateQuality();
 }

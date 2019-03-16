@@ -2,6 +2,10 @@ package com.gildedrose.wrapper;
 
 import com.gildedrose.Item;
 
+/**
+ * Factory that takes an array of legacy code items and wraps them in
+ * better interfaces.
+ */
 public class WrappedItemFactory{
     public static WrappedItem[] create(Item[] legacyItems){
         WrappedItem[] result = new WrappedItem[legacyItems.length];

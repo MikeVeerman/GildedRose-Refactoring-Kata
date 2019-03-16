@@ -8,6 +8,14 @@ public class BackstagePass extends WrappedItem{
         super(legacyItem);
     }
     
+    /**
+     * Quality of Backstage passes increases:
+     * - 3 in the last 5 days before the concert
+     * - 2 in the last 6 to 10 days before the concert
+     * - 1 10+ days before the concert
+     * 
+     * Once the concert date has passed, they have 0 quality.
+     */
     public void updateQuality() {
         if (getSellIn() <=5){
             getLegacyItem().quality += 3;
