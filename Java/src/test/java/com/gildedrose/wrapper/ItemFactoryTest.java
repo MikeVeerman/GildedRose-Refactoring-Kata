@@ -20,4 +20,18 @@ public class ItemFactoryTest{
         assertEquals("The sellIn should match", dexterityVest.sellIn, items[0].getSellIn());
         assertTrue("It should be a RegularItem", items[0] instanceof RegularItem);
     }
+
+    @Test 
+    public void testCreateAgedBrie(){
+        Item agedBrie = new Item("Aged Brie", 10, 20);
+        Item[] legacyItems = new Item[]{agedBrie};
+        WrappedItem[] items = ItemFactory.create(legacyItems);
+
+        assertNotNull(items);
+        assertEquals("There should be one item", 1, items.length);
+        assertEquals("The name should match", agedBrie.name, items[0].getName());
+        assertEquals("The quality should match", agedBrie.quality, items[0].getQuality());
+        assertEquals("The sellIn should match", agedBrie.sellIn, items[0].getSellIn());
+        assertTrue("It should be an AgedBrie", items[0] instanceof AgedBrie);
+    }
 }

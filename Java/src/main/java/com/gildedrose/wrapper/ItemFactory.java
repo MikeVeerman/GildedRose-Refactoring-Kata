@@ -7,7 +7,11 @@ public class ItemFactory{
         WrappedItem[] result = new WrappedItem[legacyItems.length];
 
         for (int i = 0; i < legacyItems.length; i++) {
-            result[i] = new RegularItem(legacyItems[i]);
+            if (legacyItems[i].name.equals("Aged Brie")){
+                result[i] = new AgedBrie(legacyItems[i]);
+            }else{
+                result[i] = new RegularItem(legacyItems[i]);
+            }            
         }
 
         return result;
