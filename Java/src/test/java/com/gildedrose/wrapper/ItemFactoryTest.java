@@ -62,4 +62,18 @@ public class ItemFactoryTest{
         assertEquals("The sellIn should match", backstagePass.sellIn, items[0].getSellIn());
         assertTrue("It should be a BackstagePass", items[0] instanceof BackstagePass);
     }
+
+    @Test 
+    public void testCreateConjuredItem(){
+        Item conjuredItem = new Item("Conjured Mana Cake", 0, 20);
+        Item[] legacyItems = new Item[]{conjuredItem};
+        WrappedItem[] items = ItemFactory.create(legacyItems);
+
+        assertNotNull(items);
+        assertEquals("There should be one item", 1, items.length);
+        assertEquals("The name should match", conjuredItem.name, items[0].getName());
+        assertEquals("The quality should match", conjuredItem.quality, items[0].getQuality());
+        assertEquals("The sellIn should match", conjuredItem.sellIn, items[0].getSellIn());
+        assertTrue("It should be a ConjuredItem", items[0] instanceof ConjuredItem);
+    }
 }
