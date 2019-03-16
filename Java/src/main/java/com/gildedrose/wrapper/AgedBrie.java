@@ -2,35 +2,17 @@ package com.gildedrose.wrapper;
 
 import com.gildedrose.Item;
 
-public class AgedBrie implements WrappedItem{
-
-    private Item legacyItem;
-
+public class AgedBrie extends WrappedItem{
     public AgedBrie(Item legacyItem) {
-        this.legacyItem = legacyItem;
-    }
-
-    @Override
-    public String getName() {
-        return this.legacyItem.name;
-    }
-
-    @Override
-    public int getSellIn() {
-        return this.legacyItem.sellIn;
-    }
-
-    @Override
-    public int getQuality() {
-        return this.legacyItem.quality;
+        super(legacyItem);
     }
 
     @Override
     public void updateQuality() {
         if (getQuality() < 50) {
-            this.legacyItem.quality ++;
+            getLegacyItem().quality ++;
         }
-        this.legacyItem.sellIn--;
+        getLegacyItem().sellIn--;
     }
 
 }
