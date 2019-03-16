@@ -7,11 +7,24 @@ public class ItemFactory{
         WrappedItem[] result = new WrappedItem[legacyItems.length];
 
         for (int i = 0; i < legacyItems.length; i++) {
-            if (legacyItems[i].name.equals("Aged Brie")){
-                result[i] = new AgedBrie(legacyItems[i]);
-            }else{
-                result[i] = new RegularItem(legacyItems[i]);
-            }            
+            String name = legacyItems[i].name;
+            WrappedItem wrappedItem;
+
+            switch(name){
+                case "Aged Brie": {
+                    wrappedItem = new AgedBrie(legacyItems[i]); 
+                    break;
+                }
+                case "Sulfuras, Hand of Ragnaros": {
+                    wrappedItem = new Sulfuras(legacyItems[i]);
+                    break;
+                }
+                default: {
+                    wrappedItem = new RegularItem(legacyItems[i]);
+                    break;
+                }
+            }
+            result[i] = wrappedItem;
         }
 
         return result;

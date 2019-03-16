@@ -34,4 +34,18 @@ public class ItemFactoryTest{
         assertEquals("The sellIn should match", agedBrie.sellIn, items[0].getSellIn());
         assertTrue("It should be an AgedBrie", items[0] instanceof AgedBrie);
     }
+
+    @Test 
+    public void testCreateSulfuras(){
+        Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 20);
+        Item[] legacyItems = new Item[]{sulfuras};
+        WrappedItem[] items = ItemFactory.create(legacyItems);
+
+        assertNotNull(items);
+        assertEquals("There should be one item", 1, items.length);
+        assertEquals("The name should match", sulfuras.name, items[0].getName());
+        assertEquals("The quality should match", sulfuras.quality, items[0].getQuality());
+        assertEquals("The sellIn should match", sulfuras.sellIn, items[0].getSellIn());
+        assertTrue("It should be a Sulfuras", items[0] instanceof Sulfuras);
+    }
 }
