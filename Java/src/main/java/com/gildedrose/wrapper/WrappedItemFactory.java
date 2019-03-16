@@ -2,7 +2,7 @@ package com.gildedrose.wrapper;
 
 import com.gildedrose.Item;
 
-public class ItemFactory{
+public class WrappedItemFactory{
     public static WrappedItem[] create(Item[] legacyItems){
         WrappedItem[] result = new WrappedItem[legacyItems.length];
 
