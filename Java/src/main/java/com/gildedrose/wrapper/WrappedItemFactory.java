@@ -11,27 +11,27 @@ public class WrappedItemFactory{
         WrappedItem[] result = new WrappedItem[legacyItems.length];
 
         for (int i = 0; i < legacyItems.length; i++) {
-
+            Item legacyItem = legacyItems[i];
             WrappedItem wrappedItem;
-            if (isConjuredItem(legacyItems[i])){
-                wrappedItem = new ConjuredItem(legacyItems[i]);
+            
+            if (isConjuredItem(legacyItem)){
+                wrappedItem = new ConjuredItem(legacyItem);
             }else {
-                String name = legacyItems[i].name;
-                switch(name){
+                switch(legacyItem.name){
                     case "Aged Brie": {
-                        wrappedItem = new AgedBrie(legacyItems[i]); 
+                        wrappedItem = new AgedBrie(legacyItem); 
                         break;
                     }
                     case "Sulfuras, Hand of Ragnaros": {
-                        wrappedItem = new Sulfuras(legacyItems[i]);
+                        wrappedItem = new Sulfuras(legacyItem);
                         break;
                     }
                     case "Backstage passes to a TAFKAL80ETC concert": {
-                        wrappedItem = new BackstagePass(legacyItems[i]);
+                        wrappedItem = new BackstagePass(legacyItem);
                         break;
                     }
                     default: {
-                        wrappedItem = new RegularItem(legacyItems[i]);
+                        wrappedItem = new RegularItem(legacyItem);
                         break;
                     }
                 }
